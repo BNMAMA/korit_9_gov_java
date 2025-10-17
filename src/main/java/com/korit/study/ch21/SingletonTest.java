@@ -5,7 +5,7 @@ public class SingletonTest {
         GameConfigManager config1 = GameConfigManager.getInstance();
         GameConfigManager config2 = GameConfigManager.getInstance();
 
-        System.out.println("같은 인스턴스인가? " + (config1 == config2));
+        System.out.println("같은 인스턴스인가? : " + (config1 == config2));
 
         // 테스트 2: 설정 변경 및 공유 확인
         config1.setSoundVolume(80);
