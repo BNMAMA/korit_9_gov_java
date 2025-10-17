@@ -1,0 +1,67 @@
+[ GIT 명령어 ]
+
+
+1. git init : git repository 생성(깃 저장소 초기화)
+2. git status : git 저장소의 상태확인(파일의 변경사항이 있는지, 브랜치는 어디에 위치하고 있는지)
+3. git add 경로 : 해당 git 저장소에 있는 폴더 및 파일들을 스테이지에 올리는 작업 (경로를 .을 입력하면 전체)
+5. git commit -m "" : 스테이지에 올라온 폴더 및 파일들을 히스토리에 저장하는 작업 (경로를 .을 입력하면 전체)
+6. git log : git 저장소의 커밋 내용을 확인할 수 있는 히스토리 조회
+7. git remote add origin 원격저장소주소 : 해당 git 저장소를 github(원격 저장소)에 연결
+8. git remote remove origin : 해당 git 저장소에 추가된 origin 저장소 삭제
+9. git push -u origin main : main 브랜치의 히스토리를 원격저장소에 업로드
+10. git push : 9번 명령을 통해 한번 upstream된 push 이후에는 그냥 push만 하면 됨 
+11. git clone 리모트주소 : github repository를 다운로드 받음(최초 다운로드 때만 사용)
+
+
+실습
+1. git_study2 폴더를 생성
+2. git_study2 폴더를 git 저장소로 만들기
+3. git_study2 폴더안에 ./src/test.java 파일을 생성 후 
+publice class text {
+	public static void main(String[] args) {
+			system.out.println("test 출력")
+	}
+}
+소스코드를 vim 에디터를 사용하여 입력
+4. git_study2 폴더안에 ./readme.md 파일을 생성 후 
+git 실습 파일입니다.
+텍스트를 vim 에디터를 사용하여 입력
+5. test.java 파일만 스테이징
+6. 스테이징된 내용 커밋 (test.java 파일 추가)
+7. readme.md 파일만 스테이징
+8. 스테이징된 내용 커밋(readme.md 파일 추가)
+9. git log 확인(2개의 커밋 내용이 있어야함)
+
+
+
+
+실습2
+1. gov 폴더에 git_project 폴더 생성
+2. git 저장소 초기화
+3. src 폴더 생성
+4. src 폴더 안에 User.java파일 생성
+		public class user {
+				private String username;
+				private String password;
+		}
+5. User.java 파일 스테이징
+6. User.java 파일 생성 메세지 작성 후 커밋
+7. github에 user_test_project repository 생성
+8. git_project 로컬 저장소를 user_test_project 리모트 저장소에 연결
+9. 최초 push 실행
+10. gov 폴더에서 git_project 폴더 삭제 rm 명령어 사용할 것
+11. gov 폴더에 user_test_project repository를 git_project1, git_project2 폴더명으로 각각 clone
+12. git_project1에서 user.java에 private String email = "test1@gmai.com"; 추가 
+13. User.java 파일 스테이징
+14. email 변수 추가 메세지 작성 후 커밋
+15. push
+16. git_project2에서 User.java에  추가
+17. User.java 파일 스테이징
+18. email 변수 추가 메세지 작성 후 커밋
+19. push
+20. push 실패 메세지 확인 후 git_project2에서 리모트 저장소 pull
+21. 병합 오류 확인 후 오류 수정
+22. 오류 수정사항 스테이징
+23. 오류 수정 후 병합 완료 메세지 작성 후 커밋
+24. push
+
