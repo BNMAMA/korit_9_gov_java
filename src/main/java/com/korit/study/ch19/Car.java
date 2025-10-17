@@ -2,18 +2,32 @@ package com.korit.study.ch19;
 
 import java.util.Objects;
 
-public class Car extends Object{
+public class Car { //extends Object 자동생성
     private String model;
-    private  String color;
+    private String color;
 
     public Car(String model, String color) {
         this.model = model;
         this.color = color;
     }
 
+//    @Override
+//    public boolean equals(Object o) {
+//        if (!(o instanceof Car)) {
+//            return false;
+//        }
+//        Car car = (Car) o;
+////        if (!(o instanceof Car car)) return false;
+//        return Objects.equals(model, car.model) && Objects.equals(color, car.color);
+//    }
+
     @Override
     public boolean equals(Object o) {
-        if (!(o instanceof Car car)) return false;
+        if (o.getClass() != Car.class) {
+            return false;
+        }
+        Car car = (Car) o;
+//        if (!(o instanceof Car car)) return false;
         return Objects.equals(model, car.model) && Objects.equals(color, car.color);
     }
 

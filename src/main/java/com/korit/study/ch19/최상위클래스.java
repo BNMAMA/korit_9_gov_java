@@ -11,6 +11,12 @@ public class 최상위클래스 {
         Object e = "test";
         String f = "abc";
         Car car = new Car("k3", "화이트");
+        Car car2 = new Car("k3", "화이트");
+        Book book = new Book("k3", "화이트");
+        System.out.println(car.equals(book));
+        System.out.println(car.hashCode() == book.hashCode());
+
+        System.out.println(car.equals(car2));
         Object g = car;
 
         String h = car.toString();
@@ -29,6 +35,7 @@ public class 최상위클래스 {
         Scanner scanner = new Scanner(System.in);
         String name4 = scanner.nextLine();
         System.out.println(name4);
+
 
         boolean result2 = name1.equals(name3);
         System.out.println(result2);
