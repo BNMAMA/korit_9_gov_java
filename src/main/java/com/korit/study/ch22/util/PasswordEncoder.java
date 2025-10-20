@@ -15,7 +15,7 @@ public class PasswordEncoder {
         return Long.toHexString(encodedHash);
     }
 
-    public boolean match(String str, String encodedStr) {
+    public static boolean match(String str, String encodedStr) {
         if (Objects.isNull(str) || Objects.isNull(encodedStr)) {
 
             return false;
