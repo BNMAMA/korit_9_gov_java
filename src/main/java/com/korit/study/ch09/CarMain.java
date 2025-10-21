@@ -3,7 +3,7 @@ package com.korit.study.ch09;
 
 
 
-class Car {
+class Car { //재사용성의 가능성이 낮음 그래서 public으로 따로 나누지 않고 사용함
     String model;
     String color;
 }
