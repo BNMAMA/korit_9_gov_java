@@ -10,8 +10,8 @@ import java.util.Objects;
 public class SignupService {
 //   싱글톤 만들기
     // 1. instance static 변수 정의
-    private static SignupService instance;
-    private UserRepository userRepository;
+    private static SignupService instance; //기본값 = null(생략) - 클래스 내에서만
+    private UserRepository userRepository; //변수명은 절대 대문자로 시작 안함
 
     private SignupService(UserRepository userRepository) {
         this.userRepository = userRepository;
@@ -26,7 +26,7 @@ public class SignupService {
 
     public boolean isValidDuplicatedUsername(String username) {
         User foundUser = userRepository.findByUsername(username);
-        if (Objects.isNull(foundUser)) {
+        if (Objects.isNull(foundUser)) { //변수명에 is, has로 돼 있으면 boolean타입
             return true;
         }
         return false;
@@ -49,6 +49,11 @@ public class SignupService {
         User newUser = new User(0, signupDto.getUsername(), signupDto.getPassword());
         userRepository.insert(signupDto.toUser()); //새로운 유저 추가
     }
+
+    //클래스 - 전역변수
+    // 1. static 변수
+    // 2. instance 변수 (멤버 변수, 속성, 필드) - 객체 안에 들어 있는 값을 속성이라 한다.
+    // 3.
 
 
 }

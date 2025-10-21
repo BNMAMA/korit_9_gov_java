@@ -31,7 +31,7 @@ public class SigninServiceImpl implements SigninService {
         //userRepository에서 함수를 활용하여 signinDtod에 있는 username을 가지고 온다
 
 
-        //로그인을 시도한 사용자이름 확인 userRepository에서
+        //로그인을 시도한 사용자이름 확인 userRepository를 통해서
         //해당 사용자 이름을 가진 User객체가 있는지 확인
         //객체가 null이면 함수 탈출(사용자 정보를 다시 확인하세요)
 

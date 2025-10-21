@@ -5,12 +5,12 @@ import com.korit.study.ch22.entity.User;
 import java.util.Arrays;
 import java.util.Objects;
 
-public class UserRepository {
-    private static UserRepository instance;
+public class UserRepository { //변수 -> 정보 보호
+    private static UserRepository instance; //private -> 접근을 못하게 막는 역할
     private User[] users;
     private int autoIncrementId ;
 
-    private UserRepository() {
+    private UserRepository() { //다른 객체에서 생성 못하게 함 -> private
         users = new User[0];
         autoIncrementId = 1;
     }
@@ -47,7 +47,7 @@ public class UserRepository {
         StringBuilder stringBuilder = new StringBuilder(); //문자열을 계속 더할 때 효과적임
         stringBuilder.append("User 배열: [");
         for (int i = 0; i < users.length; i++) {
-            stringBuilder.append(users[i]);
+            stringBuilder.append(users[i]); //toString 생략
             if (i == users.length - 1) {
                 stringBuilder.append(", ");
             }

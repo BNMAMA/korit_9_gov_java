@@ -92,3 +92,6 @@ public class SignupMain {
         System.out.println("프로그램 종료 완료");
     }
 }
+
+// 컨트롤러 -> dto-> service -> repository -> 데이터베이스
+// 엔티티는 DB와 동일해야 한다.
