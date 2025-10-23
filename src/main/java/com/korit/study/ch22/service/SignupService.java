@@ -3,7 +3,8 @@ package com.korit.study.ch22.service;
 import com.korit.study.ch22.dto.SignupDto;
 import com.korit.study.ch22.entity.User;
 import com.korit.study.ch22.repository.UserRepository;
-import com.korit.study.ch22.util.PasswordEncoder;
+import com.korit.study.ch22.repository.UserRepositoryImpl;
+import com.korit.study.ch22.repository.UserRepositoryImpl2;
 
 import java.util.Objects;
 
@@ -19,7 +20,7 @@ public class SignupService {
 
     public static SignupService getInstance() {
         if (Objects.isNull(instance)) {
-            instance = new SignupService(UserRepository.getInstance());
+            instance = new SignupService(UserRepositoryImpl2.getInstance());
         }
         return instance;
     }
