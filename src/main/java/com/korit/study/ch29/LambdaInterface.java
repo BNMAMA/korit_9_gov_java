@@ -1,8 +1,17 @@
 package com.korit.study.ch29;
 
+import com.korit.study.ch14.UserList;
+
+import java.sql.SQLOutput;
+import java.util.List;
+import java.util.Map;
 import java.util.Objects;
+import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.function.Consumer;
+import java.util.function.Function;
+import java.util.function.Predicate;
 import java.util.function.Supplier;
+import java.util.stream.Collectors;
 
 public class LambdaInterface {
     public static void main(String[] args) {
@@ -75,5 +84,68 @@ public class LambdaInterface {
         System.out.println(booleanSupplier.get());
 
         // 4. 매개변수 o, 리턴 o
+        Function<Integer, String> function = num -> {
+            System.out.println("정수를 받아서 문자열정수로 리턴");
+            return Integer.toString(num);
+        };
+        String funtionResult = function.apply(10);
+        System.out.println(funtionResult);
+
+        Integer funtionResult2 = function
+                .andThen(s -> {
+                    System.out.println("문자열정수 받아서 실수 자료형으로 리턴");
+                    return Double.parseDouble(s);
+                })
+                .andThen(d -> {
+                    System.out.println("실수자료형 바아서 정수로 리턴");
+                    return d.intValue();
+                })
+                .apply(20);
+
+        System.out.println(funtionResult2);
+
+        String funtionResult3 = function
+                .compose(d -> {
+                    System.out.println("실수자료형을 정소로 리턴");
+                    return ((Double) d).intValue();
+                })
+                .apply(20.5);
+
+        System.out.println(funtionResult3);
+
+        // 5. 매개변수 o, 리턴 boolean
+        String searchUsername = "test1234";
+        Predicate<List<Map<String, String>>> listPredicate = list -> {
+            AtomicBoolean isFound = new AtomicBoolean(false);
+            list.forEach(map -> {
+                if (map.get("username").equals(searchUsername)) {
+                    isFound.set(true);
+                }
+            });
+            return isFound.get();
+
+        };
+        List<Map<String, String>> userList = List.of(
+                Map.of("username", "test1", "password", "1111"),
+                Map.of("username", "test12", "password", "2222"),
+                Map.of("username", "test123", "password", "3333"),
+                Map.of("username", "test1234", "password", "4444")
+        );
+        System.out.println(listPredicate.test(userList));
+
+        List<String> names = List.of("김준일", "김준이", "이준일", "이준이");
+        String startedLastName = "이";
+        List<String> filteringNames = names.stream()
+                .filter(name -> name.startsWith(startedLastName))
+                .collect(Collectors.toList());
+
+        System.out.println(names);
+        System.out.println(filteringNames);
+
+        String foundName = names.stream().filter(name -> name.equals("김준이"))
+                .collect(Collectors.toList())
+                .getFirst();
+        System.out.println(foundName);
     }
+
 }
