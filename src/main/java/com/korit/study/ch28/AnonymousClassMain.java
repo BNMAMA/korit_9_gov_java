@@ -11,7 +11,7 @@ public class AnonymousClassMain { //anonymous 랑 atomic이랑 세트
         int num = 10;
         AtomicInteger num2 = new AtomicInteger(10);
 
-        AnonymousClass b = new AnonymousClass() {
+        AnonymousClass b = new AnonymousClass() { //임시로 사용함
                                             //클래스명 생략
             //innerClass는 클래스 안에 클래스 생성 가능
             //------------메소드 안에 클래스 생성 불가능
@@ -27,7 +27,11 @@ public class AnonymousClassMain { //anonymous 랑 atomic이랑 세트
             @Override
             public int fx2() {
                 return 0;
+
+
             }
         };
+        b.fx1();
     }
+
 }
