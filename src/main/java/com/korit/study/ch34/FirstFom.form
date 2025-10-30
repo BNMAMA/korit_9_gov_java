@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="com.korit.study.ch34.FirstFom">
+  <grid id="27dc6" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+    <constraints>
+      <xy x="20" y="20" width="528" height="400"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <component id="ae19a" class="javax.swing.JButton" binding="버튼Button" default-binding="true">
+        <constraints/>
+        <properties>
+          <text value="버튼"/>
+        </properties>
+      </component>
+      <component id="98d40" class="javax.swing.JButton" binding="button1" default-binding="true">
+        <constraints/>
+        <properties>
+          <text value="Button"/>
+        </properties>
+      </component>
+      <component id="3c20c" class="javax.swing.JButton" binding="button2" default-binding="true">
+        <constraints/>
+        <properties>
+          <text value="Button"/>
+        </properties>
+      </component>
+      <component id="2419b" class="javax.swing.JButton" binding="button3" default-binding="true">
+        <constraints/>
+        <properties>
+          <text value="Button"/>
+        </properties>
+      </component>
+    </children>
+  </grid>
+</form>
